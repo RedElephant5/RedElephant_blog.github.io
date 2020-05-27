@@ -5,21 +5,21 @@
   
 
   
-  <title>二叉树遍历 | Hexo</title>
+  <title>二叉树遍历 | 红色小象の博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="02. 二叉树的层序遍历 {.css-tt3ivf-Title .eugt34i1 data-cypress&#x3D;”QuestionTitle”}给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）。 {.css-tt3ivf-Title .eugt34i1 data-cypress&#x3D;”QuestionTitle”}示例：二叉树：[3,9,20,null,null">
+  <meta name="description" content="02. 二叉树的层序遍历给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）示例：二叉树：[3,9,20,null,null,15,7], 3 &#x2F; \ 9 20 &#x2F; \ 15 7返回其层次遍历结果： [[3], [9,20], [15,7]] 个人总结: 首先看到这道题的时候想到的是广度优先搜索,但由于局限框架的原因并没有想到思路,然后转到深度优先搜索,然后一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二叉树遍历">
 <meta property="og:url" content="http://yoursite.com/2020/05/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="02. 二叉树的层序遍历 {.css-tt3ivf-Title .eugt34i1 data-cypress&#x3D;”QuestionTitle”}给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）。 {.css-tt3ivf-Title .eugt34i1 data-cypress&#x3D;”QuestionTitle”}示例：二叉树：[3,9,20,null,null">
+<meta property="og:site_name" content="红色小象の博客">
+<meta property="og:description" content="02. 二叉树的层序遍历给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）示例：二叉树：[3,9,20,null,null,15,7], 3 &#x2F; \ 9 20 &#x2F; \ 15 7返回其层次遍历结果： [[3], [9,20], [15,7]] 个人总结: 首先看到这道题的时候想到的是广度优先搜索,但由于局限框架的原因并没有想到思路,然后转到深度优先搜索,然后一">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-27T06:57:29.000Z">
-<meta property="article:modified_time" content="2020-05-27T07:18:56.491Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2020-05-27T07:26:15.457Z">
+<meta property="article:author" content="red elephant">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="红色小象の博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -40,7 +40,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">红色小象の博客</a>
       </h1>
       
     </div>
@@ -88,30 +88,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="02-二叉树的层序遍历-css-tt3ivf-Title-eugt34i1-data-cypress-”QuestionTitle”"><a href="#02-二叉树的层序遍历-css-tt3ivf-Title-eugt34i1-data-cypress-”QuestionTitle”" class="headerlink" title="02. 二叉树的层序遍历 {.css-tt3ivf-Title .eugt34i1 data-cypress=”QuestionTitle”}"></a><a href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/" target="_blank" rel="noopener">02. 二叉树的层序遍历</a> {.css-tt3ivf-Title .eugt34i1 data-cypress=”QuestionTitle”}</h4><h4 id="给你一个二叉树，请你返回其按-层序遍历-得到的节点值。-（即逐层地，从左到右访问所有节点）。-css-tt3ivf-Title-eugt34i1-data-cypress-”QuestionTitle”"><a href="#给你一个二叉树，请你返回其按-层序遍历-得到的节点值。-（即逐层地，从左到右访问所有节点）。-css-tt3ivf-Title-eugt34i1-data-cypress-”QuestionTitle”" class="headerlink" title="给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）。 {.css-tt3ivf-Title .eugt34i1 data-cypress=”QuestionTitle”}"></a>给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）。 {.css-tt3ivf-Title .eugt34i1 data-cypress=”QuestionTitle”}</h4><p>示例：<br>二叉树：[3,9,20,null,null,15,7],</p>
+        <h4 id="02-二叉树的层序遍历"><a href="#02-二叉树的层序遍历" class="headerlink" title="02. 二叉树的层序遍历"></a><a href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/" target="_blank" rel="noopener">02. 二叉树的层序遍历</a></h4><h4 id="给你一个二叉树，请你返回其按-层序遍历-得到的节点值。-（即逐层地，从左到右访问所有节点）"><a href="#给你一个二叉树，请你返回其按-层序遍历-得到的节点值。-（即逐层地，从左到右访问所有节点）" class="headerlink" title="给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）"></a>给你一个二叉树，请你返回其按 层序遍历 得到的节点值。 （即逐层地，从左到右访问所有节点）</h4><p>示例：<br>二叉树：[3,9,20,null,null,15,7],</p>
 <p>3<br> / \<br> 9 20<br> / \<br> 15 7<br>返回其层次遍历结果：</p>
 <p>[[3],<br> [9,20],<br> [15,7]]</p>
 <h2 id="个人总结"><a href="#个人总结" class="headerlink" title="个人总结:"></a>个人总结:</h2><ul>
 <li>首先看到这道题的时候想到的是广度优先搜索,但由于局限框架的原因并没有想到思路,然后转到深度优先搜索,然后一点一点的把代码写出来,在对于如何在下一层创建空间的时候卡了一下。其实如果觉得自己的思路对，如果碰到问题了还是要在想一想，不要轻言放弃。以下是自己写的代码:</li>
 </ul>
-<figure class="highlight plain"><figcaption><span>.brush:python .ace-tomorrow data-mce-style</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class SolutionY:</span><br><span class="line">    def levelOrder(self, root: TreeNode) -&gt; List[List[int]]:</span><br><span class="line">        if not root:</span><br><span class="line">            return []</span><br><span class="line">        res &#x3D; []</span><br><span class="line">        def dfs(node, level):</span><br><span class="line">            if not node:</span><br><span class="line">                return</span><br><span class="line">            if len(res) - 1 &lt; level:</span><br><span class="line">                res.append([])</span><br><span class="line">            if node.val is not None:</span><br><span class="line">                res[level].append(node.val)</span><br><span class="line">            dfs(node.left, level + 1)</span><br><span class="line">            dfs(node.right, level + 1)</span><br><span class="line">        dfs(root, 0)</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class SolutionY:</span><br><span class="line">    def levelOrder(self, root: TreeNode) -&gt; List[List[int]]:</span><br><span class="line">        if not root:</span><br><span class="line">            return []</span><br><span class="line">        res &#x3D; []</span><br><span class="line">        def dfs(node, level):</span><br><span class="line">            if not node:</span><br><span class="line">                return</span><br><span class="line">            if len(res) - 1 &lt; level:</span><br><span class="line">                res.append([])</span><br><span class="line">            if node.val is not None:</span><br><span class="line">                res[level].append(node.val)</span><br><span class="line">            dfs(node.left, level + 1)</span><br><span class="line">            dfs(node.right, level + 1)</span><br><span class="line">        dfs(root, 0)</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>使用了系统栈的接口来完成,比较好理解。</li>
 <li>其实在你学习了一些模板之后还是不要死记硬背这些模板,需要知道模板的思路,思路是很重要的！！！<br>这段代码跑的话pyton基本是出于55%左右。</li>
 <li>然后看其他人写的代码,使用的是广度优先搜索的方式。广度优先搜索使用的是队列的数据结构,临近的元素逐一添加进队列来完成,但问题是如何判断具体是那一层的数据呢？在一开始想写广度优先搜索的时候就卡到这了。代码中巧妙的用到了查询队列的长度,然后通过for循环长度来取队列中的数据,这样就可以取到一层的数据了,把一层的数据保存到临时列表中,最后for循环结束后插入到正常返回的列表中。</li>
 </ul>
-<figure class="highlight plain"><figcaption><span>.brush:python .ace-tomorrow&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class SolutionY:</span><br><span class="line">    def levelOrder(self, root: TreeNode) -&gt; List[List[int]]:</span><br><span class="line">        from collections import deque</span><br><span class="line">        if not root:</span><br><span class="line">            return []</span><br><span class="line">        res &#x3D; []</span><br><span class="line">        q &#x3D; deque([root])</span><br><span class="line">        while q:</span><br><span class="line">            lenght &#x3D; len(q)</span><br><span class="line">            temp &#x3D; []</span><br><span class="line">            for i in range(lenght):</span><br><span class="line">                node &#x3D; q.popleft()</span><br><span class="line">                temp.append(node.val)</span><br><span class="line">                if node.left:</span><br><span class="line">                    q.append(node.left)</span><br><span class="line">                if node.right:</span><br><span class="line">                    q.append(node.right)</span><br><span class="line">            if temp:</span><br><span class="line">                res.append(temp)</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure>
-
-<p> \</p>
-<p>\</p>
-<p> \</p>
-<p>\</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">class SolutionY:</span><br><span class="line">    def levelOrder(self, root: TreeNode) -&gt; List[List[int]]:</span><br><span class="line">        from collections import deque</span><br><span class="line">        if not root:</span><br><span class="line">            return []</span><br><span class="line">        res &#x3D; []</span><br><span class="line">        q &#x3D; deque([root])</span><br><span class="line">        while q:</span><br><span class="line">            lenght &#x3D; len(q)</span><br><span class="line">            temp &#x3D; []</span><br><span class="line">            for i in range(lenght):</span><br><span class="line">                node &#x3D; q.popleft()</span><br><span class="line">                temp.append(node.val)</span><br><span class="line">                if node.left:</span><br><span class="line">                    q.append(node.left)</span><br><span class="line">                if node.right:</span><br><span class="line">                    q.append(node.right)</span><br><span class="line">            if temp:</span><br><span class="line">                res.append(temp)</span><br><span class="line">        return res</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/" data-id="ckap0pwip000188fbb5jiftvk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/05/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/" data-id="ckap0z8ge000237fb55ch5oe8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -120,10 +115,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2020/05/27/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          博客测试
+        
+      </div>
+    </a>
   
-    <a href="/2020/05/27/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2020/05/27/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">博客测试</div>
+      <div class="article-nav-title">Hello World</div>
     </a>
   
 </nav>
@@ -160,11 +164,11 @@
       <ul>
         
           <li>
-            <a href="/2020/05/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/">二叉树遍历</a>
+            <a href="/2020/05/27/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/">博客测试</a>
           </li>
         
           <li>
-            <a href="/2020/05/27/%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/">博客测试</a>
+            <a href="/2020/05/27/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B1%82%E5%BA%8F%E9%81%8D%E5%8E%86/">二叉树遍历</a>
           </li>
         
           <li>
@@ -183,7 +187,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
+      &copy; 2020 red elephant<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
