@@ -4,20 +4,20 @@
 <head>
     <meta charset="utf-8">
     
-    <title>设计推特 | 红色小象</title>
+    <title>Kong简单介绍 | 红色小象</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta name="description" content="设计推特题目描述:设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注&#x2F;取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：">
+    <meta name="description" content="Kong简单介绍 Kong是由Mashape出品的一款开源的api gateway服务器,官方解释为API Gateway, or API Middleware,由lua语言编写。Kong 是在客户端和（微）服务间转发API通信的API网关。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计推特">
-<meta property="og:url" content="http://yoursite.com/2020/05/28/%E8%AE%BE%E8%AE%A1%E6%8E%A8%E7%89%B9/index.html">
+<meta property="og:title" content="Kong简单介绍">
+<meta property="og:url" content="http://yoursite.com/2020/05/28/Kong%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/index.html">
 <meta property="og:site_name" content="红色小象">
-<meta property="og:description" content="设计推特题目描述:设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注&#x2F;取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：">
+<meta property="og:description" content="Kong简单介绍 Kong是由Mashape出品的一款开源的api gateway服务器,官方解释为API Gateway, or API Middleware,由lua语言编写。Kong 是在客户端和（微）服务间转发API通信的API网关。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-28T05:56:00.000Z">
-<meta property="article:modified_time" content="2020-05-28T06:10:44.366Z">
+<meta property="article:published_time" content="2020-05-28T06:19:00.000Z">
+<meta property="article:modified_time" content="2020-05-28T06:22:53.036Z">
 <meta property="article:author" content="red elephant">
-<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="API网管Kong">
 <meta name="twitter:card" content="summary">
 
     
@@ -88,7 +88,7 @@
       <section class="inner">
         <section class="inner-main">
           <div class="post">
-    <article id="post-设计推特" class="article article-type-post" itemscope
+    <article id="post-Kong简单介绍" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -100,7 +100,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      设计推特
+      Kong简单介绍
     </h1>
   
 
@@ -109,72 +109,26 @@
 
         <div class="article-more-info article-more-info-post hairline">
             <div class="article-date">
-  <time datetime="2020-05-28T05:56:00.000Z" itemprop="datePublished">2020-05-28</time>
+  <time datetime="2020-05-28T06:19:00.000Z" itemprop="datePublished">2020-05-28</time>
 </div>
             
             
             <div class="article-tag">
-                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API%E7%BD%91%E7%AE%A1Kong/" rel="tag">API网管Kong</a></li></ul>
             </div>
             
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <h4 id="设计推特"><a href="#设计推特" class="headerlink" title="设计推特"></a><a href="https://leetcode-cn.com/problems/design-twitter/" target="_blank" rel="noopener">设计推特</a></h4><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述:"></a>题目描述:</h2><p>设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注/取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：</p>
-<a id="more"></a>
-
-<ol>
-<li>postTweet(userId, tweetId): 创建一条新的推文</li>
-<li>getNewsFeed(userId): 检索最近的十条推文。每个推文都必须是由此用户关注的人或者是用户自己发出的。推文必须按照时间顺序由最近的开始排序。</li>
-<li>follow(followerId, followeeId): 关注一个用户</li>
-<li>unfollow(followerId, followeeId): 取消关注一个用户</li>
+            <h2 id="Kong简单介绍"><a href="#Kong简单介绍" class="headerlink" title="Kong简单介绍"></a>Kong简单介绍</h2><ul>
+<li>Kong是由Mashape出品的一款开源的api gateway服务器,官方解释为API Gateway, or API Middleware,由lua语言编写。Kong 是在客户端和（微）服务间转发API通信的API网关。<a id="more"></a></li>
+<li>Kong是一个在Nginx运行的Lua应用程序，由lua-nginx-module实现。Kong和OpenResty一起打包发行，其中已经包含了lua-nginx-module。OpenResty不是Nginx的分支，而是一组扩展其功能的模块。</li>
+<li>Kong 是在客户端和（微）服务间转发API通信的API网关，通过插件扩展功能。Kong 有两个主要组件：<ol>
+<li>Kong Server ：基于nginx的服务器，用来接收 API 请求。</li>
+<li>Apache Cassandra：用来存储操作数据。</li>
 </ol>
-<h2 id="个人总结"><a href="#个人总结" class="headerlink" title="个人总结:"></a>个人总结:</h2><ul>
-<li><p>这道题使用了哈希表,以及数据嵌套进行实现,标记了每一个推特为一个对象,对象中有date,is_delete,self,other,twieeer_id,每一个用户对应多个推特对象.</p>
 </li>
-<li><p>程序中每个方法应该解耦合,每个方法只是干自己定义的事情,不要进行其他设置操作,这是程序设计的基本要求,对以后扩展更为方便.</p>
-<pre><code class="python">class Twitter:
-
-    def __init__(self):
-       self.twitter_dict = {}
-       self.follow_dict = {}
-
-   def postTweet(self, userId: int, tweetId: int) -&gt; None:
-       from datetime import datetime
-       if userId in self.twitter_dict.keys():
-           self.twitter_dict[userId].append(dict(tweetid=tweetId,date=datetime.now()))
-       else:
-           self.twitter_dict[userId] = [dict(tweetid=tweetId,date=datetime.now())]
-
-   def getNewsFeed(self, userId: int) -&gt; List[int]:
-       result = []
-       result += self.twitter_dict.get(userId,[])
-       for follow in self.follow_dict.get(userId, []):
-           result += self.twitter_dict.get(follow, [])
-       res = sorted(result, key= lambda x:x[&#39;date&#39;], reverse=True)
-       new_res = [r[&#39;tweetid&#39;] for r in res]
-       return new_res[:10]
-
-   def follow(self, followerId: int, followeeId: int) -&gt; None:
-       if followerId == followeeId:
-           return
-       if not self.follow_dict.get(followerId):
-           self.follow_dict[followerId] = []
-       if not self.follow_dict.get(followeeId):
-           self.follow_dict[followeeId] = []
-       if followeeId not in self.follow_dict[followerId]:
-           self.follow_dict[followerId].append(followeeId)
-
-   def unfollow(self, followerId: int, followeeId: int) -&gt; None:
-       if followerId == followeeId:
-           return
-       if not self.follow_dict.get(followerId):
-           self.follow_dict[followerId] = []
-       if not self.follow_dict.get(followeeId):
-           self.follow_dict[followeeId] = []
-       if followeeId in self.follow_dict[followerId]:
-           self.follow_dict[followerId].remove(followeeId)</code></pre>
-</li>
+<li>集中对api进行管理,举个例子:比如有5个api在A服务器,另外有10个api在B服务器上,Kong会对这15个api进行管理,有请求过来的时候命中那些api就进行返回,相当于在各个服务上面有一个管理这来管理这些,这样的好处在于跨语言服务器的管理。微服务的api网管。</li>
 </ul>
 
         </div>
@@ -200,19 +154,19 @@
     
 <nav class="article-nav">
   
-    <a href="/2020/05/28/Kong%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/29/%E6%88%91%E6%98%AF%E4%B8%80%E6%9D%A1%E7%BD%AE%E9%A1%B6/" id="article-nav-newer" class="article-nav-link-wrap">
       <div class="article-nav-caption">下一篇</div>
       <div class="article-nav-title">
         
-          Kong简单介绍
+          我是一条置顶
         
       </div>
     </a>
   
   
-    <a href="/2020/05/28/%E4%BD%BF%E7%94%A8%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E6%A0%88/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/05/28/%E8%AE%BE%E8%AE%A1%E6%8E%A8%E7%89%B9/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">使用队列实现栈</div>
+      <div class="article-nav-title">设计推特</div>
     </a>
   
 </nav>
@@ -221,15 +175,15 @@
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=设计推特 - 红色小象&url=http://yoursite.com/2020/05/28/%E8%AE%BE%E8%AE%A1%E6%8E%A8%E7%89%B9/">
+            href="https://twitter.com/share?text=Kong简单介绍 - 红色小象&url=http://yoursite.com/2020/05/28/Kong%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/">
             <div class="n-icon n-icon-twitter"></div>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=设计推特 - 红色小象&u=http://yoursite.com/2020/05/28/%E8%AE%BE%E8%AE%A1%E6%8E%A8%E7%89%B9/">
+            href="https://www.facebook.com/sharer.php?title=Kong简单介绍 - 红色小象&u=http://yoursite.com/2020/05/28/Kong%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/">
             <div class="n-icon n-icon-facebook"></div>
         </a>
         <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=设计推特 - 红色小象&url=http://yoursite.com/2020/05/28/%E8%AE%BE%E8%AE%A1%E6%8E%A8%E7%89%B9/&pic=">
+            href="https://service.weibo.com/share/share.php?title=Kong简单介绍 - 红色小象&url=http://yoursite.com/2020/05/28/Kong%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a>
     </section>
