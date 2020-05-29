@@ -4,18 +4,18 @@
 <head>
     <meta charset="utf-8">
     
-    <title>设计推特 | 红色小象</title>
+    <title>打家劫舍 | 红色小象</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta name="description" content="设计推特题目描述:设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注&#x2F;取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：">
+    <meta name="description" content="打家劫舍题目表述：你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计推特">
-<meta property="og:url" content="http://yoursite.com/2020/05/28/%E8%AE%BE%E8%AE%A1%E6%8E%A8%E7%89%B9/index.html">
+<meta property="og:title" content="打家劫舍">
+<meta property="og:url" content="http://yoursite.com/2020/05/29/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/index.html">
 <meta property="og:site_name" content="红色小象">
-<meta property="og:description" content="设计推特题目描述:设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注&#x2F;取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：">
+<meta property="og:description" content="打家劫舍题目表述：你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-28T05:56:00.000Z">
-<meta property="article:modified_time" content="2020-05-28T06:10:44.366Z">
+<meta property="article:published_time" content="2020-05-29T02:16:00.000Z">
+<meta property="article:modified_time" content="2020-05-29T02:35:14.949Z">
 <meta property="article:author" content="red elephant">
 <meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
@@ -88,7 +88,7 @@
       <section class="inner">
         <section class="inner-main">
           <div class="post">
-    <article id="post-设计推特" class="article article-type-post" itemscope
+    <article id="post-打家劫舍" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -100,7 +100,7 @@
             
   
     <h1 class="article-title" itemprop="name">
-      设计推特
+      打家劫舍
     </h1>
   
 
@@ -109,7 +109,7 @@
 
         <div class="article-more-info article-more-info-post hairline">
             <div class="article-date">
-  <time datetime="2020-05-28T05:56:00.000Z" itemprop="datePublished">2020-05-28</time>
+  <time datetime="2020-05-29T02:16:00.000Z" itemprop="datePublished">2020-05-29</time>
 </div>
             
             
@@ -120,61 +120,59 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <h4 id="设计推特"><a href="#设计推特" class="headerlink" title="设计推特"></a><a href="https://leetcode-cn.com/problems/design-twitter/" target="_blank" rel="noopener">设计推特</a></h4><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述:"></a>题目描述:</h2><p>设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注/取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：</p>
+            <h4 id="打家劫舍"><a href="#打家劫舍" class="headerlink" title="打家劫舍"></a><a href="https://leetcode-cn.com/problems/house-robber/" target="_blank" rel="noopener">打家劫舍</a></h4><h2 id="题目表述："><a href="#题目表述：" class="headerlink" title="题目表述："></a>题目表述：</h2><p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，</p>
 <a id="more"></a>
-
-<ol>
-<li>postTweet(userId, tweetId): 创建一条新的推文</li>
-<li>getNewsFeed(userId): 检索最近的十条推文。每个推文都必须是由此用户关注的人或者是用户自己发出的。推文必须按照时间顺序由最近的开始排序。</li>
-<li>follow(followerId, followeeId): 关注一个用户</li>
-<li>unfollow(followerId, followeeId): 取消关注一个用户</li>
-</ol>
+<p>如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。<br>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
+<pre><code class="bash">示例 1:
+输入: [1,2,3,1]
+输出: 4
+解释: 偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。
+     偷窃到的最高金额 = 1 + 3 = 4 。</code></pre>
+<pre><code class="bash">示例 2:
+输入: [2,7,9,3,1]
+输出: 12
+解释: 偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。
+     偷窃到的最高金额 = 2 + 9 + 1 = 12 。</code></pre>
 <h2 id="个人总结"><a href="#个人总结" class="headerlink" title="个人总结:"></a>个人总结:</h2><ul>
-<li><p>这道题使用了哈希表,以及数据嵌套进行实现,标记了每一个推特为一个对象,对象中有date,is_delete,self,other,twieeer_id,每一个用户对应多个推特对象.</p>
-</li>
-<li><p>程序中每个方法应该解耦合,每个方法只是干自己定义的事情,不要进行其他设置操作,这是程序设计的基本要求,对以后扩展更为方便.</p>
-<pre><code class="python">class Twitter:
-
-    def __init__(self):
-       self.twitter_dict = {}
-       self.follow_dict = {}
-
-   def postTweet(self, userId: int, tweetId: int) -&gt; None:
-       from datetime import datetime
-       if userId in self.twitter_dict.keys():
-           self.twitter_dict[userId].append(dict(tweetid=tweetId,date=datetime.now()))
-       else:
-           self.twitter_dict[userId] = [dict(tweetid=tweetId,date=datetime.now())]
-
-   def getNewsFeed(self, userId: int) -&gt; List[int]:
-       result = []
-       result += self.twitter_dict.get(userId,[])
-       for follow in self.follow_dict.get(userId, []):
-           result += self.twitter_dict.get(follow, [])
-       res = sorted(result, key= lambda x:x[&#39;date&#39;], reverse=True)
-       new_res = [r[&#39;tweetid&#39;] for r in res]
-       return new_res[:10]
-
-   def follow(self, followerId: int, followeeId: int) -&gt; None:
-       if followerId == followeeId:
-           return
-       if not self.follow_dict.get(followerId):
-           self.follow_dict[followerId] = []
-       if not self.follow_dict.get(followeeId):
-           self.follow_dict[followeeId] = []
-       if followeeId not in self.follow_dict[followerId]:
-           self.follow_dict[followerId].append(followeeId)
-
-   def unfollow(self, followerId: int, followeeId: int) -&gt; None:
-       if followerId == followeeId:
-           return
-       if not self.follow_dict.get(followerId):
-           self.follow_dict[followerId] = []
-       if not self.follow_dict.get(followeeId):
-           self.follow_dict[followeeId] = []
-       if followeeId in self.follow_dict[followerId]:
-           self.follow_dict[followerId].remove(followeeId)</code></pre>
-</li>
+<li>其实本题一看应该是动态规划问题,因为是求的是最高金额,但这道题的动态规划的状态转移方程需要如何编写呢,状态转移方式是动态规划问题中最难生成的。</li>
+<li>这道题其实我自己考虑的时候也在想如何写出状态转移方式,我的心路历程是考虑每一个数的最值问题,我只是想到了此处,想到是取到 dp[i(当前数据) - 2] + nums[i]，后面的没有想出来。。。</li>
+<li>其实看了题解之后,发现只是差临门一脚了,这种问题后面还是要多多联系,有了思路可能就好了吧。就相当于原先看到一道题并不知道需要使用什么方法来求解,现在是看到一道题知道需要使用什么方式来求解了。(说的有点远了，回归主题)</li>
+<li>状态转移方式就是当前的最大值是：当前值的前两个的最大值 + 当前值 与 当前值的前一个最大值进行比较,去这两个中的最大值为当前的最大值,状态转移方程为：</li>
+</ul>
+<pre><code class="bash">        dp[i] = max(dp[i-2] + nums[i], dp[i-1])</code></pre>
+<ul>
+<li>得到方程了,在考虑边界的情况,由于需要是前两个,所以数组的前两个值单独计算一下即可。以下为代码</li>
+</ul>
+<pre><code class="python">   class SolutionAL:
+    def rob(self, nums: List[int]) -&gt; int:
+        if not nums:
+            return 0
+        lenght = len(nums)
+        if lenght == 1:
+            return nums[0]
+        dp = [0] * lenght
+        dp[0], dp[1] = nums[0], max(nums[0], nums[1])
+        for i in range(2, lenght):
+            dp[i] = max(dp[i-2] + nums[i], dp[i-1])
+        return dp[-1]
+</code></pre>
+<ul>
+<li>以上方式的时间复杂度为O(n)，空间复杂度也为O(n)，由于是创建了一个数组来保存每一位的最大值。</li>
+<li>其实还可以进行优化为空间复杂度为O(1),经过观察发现当前值只是跟前两个和前一个元素有关,那我们就可以进行声明两个变量重复的进行替换。类似于斐波那契数列。</li>
+<li>可以理解成在数组前面增加了两个数,这两个数均为0,相当于动态规划的i-2 和 i-1 这样只需要两个变量就可以了。这种解法也是通过状态转移方程生成之后转化而来的。</li>
+</ul>
+<pre><code class="python">class SolutionAL:
+    def rob(self, nums: List[int]) -&gt; int:
+        a, b = 0, 0
+        c = 0
+        for num in nums:
+            c = max(num + a, b)
+            a = b
+            b = c
+        return c</code></pre>
+<ul>
+<li>可以看出代码相当的简洁。。。</li>
+<li>其实往往复杂的问题都是从简单的问题演化而来的。</li>
 </ul>
 
         </div>
@@ -200,19 +198,19 @@
     
 <nav class="article-nav">
   
-    <a href="/2020/05/28/Kong%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/05/29/%E6%88%91%E6%98%AF%E4%B8%80%E6%9D%A1%E7%BD%AE%E9%A1%B6/" id="article-nav-newer" class="article-nav-link-wrap">
       <div class="article-nav-caption">下一篇</div>
       <div class="article-nav-title">
         
-          Kong简单介绍
+          我是一条置顶
         
       </div>
     </a>
   
   
-    <a href="/2020/05/28/%E4%BD%BF%E7%94%A8%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E6%A0%88/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/05/28/Kong%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-caption">上一篇</div>
-      <div class="article-nav-title">使用队列实现栈</div>
+      <div class="article-nav-title">Kong简单介绍</div>
     </a>
   
 </nav>
@@ -221,15 +219,15 @@
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=设计推特 - 红色小象&url=http://yoursite.com/2020/05/28/%E8%AE%BE%E8%AE%A1%E6%8E%A8%E7%89%B9/">
+            href="https://twitter.com/share?text=打家劫舍 - 红色小象&url=http://yoursite.com/2020/05/29/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/">
             <div class="n-icon n-icon-twitter"></div>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=设计推特 - 红色小象&u=http://yoursite.com/2020/05/28/%E8%AE%BE%E8%AE%A1%E6%8E%A8%E7%89%B9/">
+            href="https://www.facebook.com/sharer.php?title=打家劫舍 - 红色小象&u=http://yoursite.com/2020/05/29/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/">
             <div class="n-icon n-icon-facebook"></div>
         </a>
         <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=设计推特 - 红色小象&url=http://yoursite.com/2020/05/28/%E8%AE%BE%E8%AE%A1%E6%8E%A8%E7%89%B9/&pic=">
+            href="https://service.weibo.com/share/share.php?title=打家劫舍 - 红色小象&url=http://yoursite.com/2020/05/29/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a>
     </section>
