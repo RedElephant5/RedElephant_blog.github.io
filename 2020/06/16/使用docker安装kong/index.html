@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    
+    <title>使用docker安装kong | 红色小象</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="首先安装docker在Ubuntu，Deepin中运行如下命令会自动安装docker     apt install docker 如在centos中运行下面命令安装docker     yum install docker     systemctl enable docker     systemctl start docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用docker安装kong">
+<meta property="og:url" content="http://yoursite.com/2020/06/16/%E4%BD%BF%E7%94%A8docker%E5%AE%89%E8%A3%85kong/index.html">
+<meta property="og:site_name" content="红色小象">
+<meta property="og:description" content="首先安装docker在Ubuntu，Deepin中运行如下命令会自动安装docker     apt install docker 如在centos中运行下面命令安装docker     yum install docker     systemctl enable docker     systemctl start docker">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-16T03:34:00.000Z">
+<meta property="article:modified_time" content="2020-06-16T05:35:44.897Z">
+<meta property="article:author" content="red elephant">
+<meta property="article:tag" content="API网管Kong">
+<meta name="twitter:card" content="summary">
+
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/dist/build.css?1.2.0">
+
+    <script>
+        window.aomori = {
+            
+        }
+    </script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+
+  <div class="container">
+  <header class="header">
+    <div class="header-type">
+      
+      <div class="avatar avatar-sm">
+        <img src="/images/avatar.jpg" alt="red elephant">
+      </div>
+      
+      <a href="/">红色小象</a>
+    </div>
+    <div class="header-menu">
+      
+        <a href="/">Home</a>
+      
+        <a href="/archives">Archives</a>
+      
+    </div>
+    
+    <div class="header-menu-mobile">
+      <div class="header-menu-mobile-inner" id="mobile-menu-open">
+        <i class="icon icon-menu"></i>
+      </div>
+    </div>
+  </header>
+
+  <div class="header-menu-mobile-menu">
+    <div class="header-menu-mobile-menu-bg"></div>
+    <div class="header-menu-mobile-menu-wrap">
+      <div class="header-menu-mobile-menu-inner">
+        <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+          <i class="icon icon-cross"></i>
+        </div>
+        <div class="header-menu-mobile-menu-list">
+          
+            <a href="/">Home</a>
+          
+            <a href="/archives">Archives</a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  <div class="container">
+    <div class="main">
+      <section class="inner">
+        <section class="inner-main">
+          <div class="post">
+    <article id="post-使用docker安装kong" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      使用docker安装kong
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+            <div class="article-date">
+  <time datetime="2020-06-16T03:34:00.000Z" itemprop="datePublished">2020-06-16</time>
+</div>
+            
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API%E7%BD%91%E7%AE%A1Kong/" rel="tag">API网管Kong</a></li></ul>
+            </div>
+            
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <h2 id="首先安装docker"><a href="#首先安装docker" class="headerlink" title="首先安装docker"></a>首先安装docker</h2><pre><code class="bash">在Ubuntu，Deepin中运行如下命令会自动安装docker
+    apt install docker
+如在centos中运行下面命令安装docker
+    yum install docker
+    systemctl enable docker
+    systemctl start docker </code></pre>
+<a id="more"></a>
+
+<h2 id="是否连接数据库"><a href="#是否连接数据库" class="headerlink" title="是否连接数据库"></a>是否连接数据库</h2><ul>
+<li><p>连接数据库</p>
+<ul>
+<li><p>kong容器支持连接Cassandra或PostgreSQL 两种数据库。</p>
+</li>
+<li><p>首先需要创建一个Docker network</p>
+<ul>
+<li>创建一个自定义网络是为了允许容器间的相互发现和通讯,为满足Kong和Kong数据库之间的连接,不在通过主机实现通讯。</li>
+<li>再此示例中, kong-net 是网络名称, 这个可以使用任何名称  默认方式是 bridge<pre><code class="bash">docker network create kong-net</code></pre>
+</li>
+<li>我们可以通过 <strong>bash docker  network  ls</strong> 来查看目前有哪些网络</li>
+</ul>
+</li>
+<li><p>启动数据库</p>
+<ul>
+<li><p>如果使用的Cassandra数据库容器:  (容器名:kong-database  端口:9042 –&gt; 映射到主机9042  后面为镜像的版本,镜像会通过公共镜像源查看对应版本进行下载)</p>
+<pre><code class="bash">docker run -d --name kong-database  --network=kong-net  -p 9042:9042 cassandra:3</code></pre>
+</li>
+<li><p>下载后可以查看容器状态看是否数据库开启正常</p>
+<pre><code class="bash">docker ps</code></pre>
+</li>
+<li><p>如果使用的是PostgreSQL数据库容器: (容器名:kong-database 端口:5432 –&gt; 映射到主机5432 -e 是为容器创建的环境变量，-e后面是在运行的时候输入的参数来对数据库进行配置)</p>
+<pre><code class="bash">docker run -d --name kong-database  --network=kong-net  -p 5432:5432  -e &quot;POSTGRES_USER=kong&quot;  -e &quot;POSTGRES_DB=kong&quot;   -e  &quot;POSTGRES_PASSWORD=kong&quot; postgres:9.6</code></pre>
+</li>
+<li><p>准备数据库，使用临时Kong容器运行迁移：(使用docker中存在的数据库镜像把数据库中的内容迁移到本地新创建的数据库中,并进行数据库用户,密码,数据库名设置)</p>
+<pre><code class="bash">docker run --rm --network=kong-net -e &quot;KONG_DATABASE=postgres&quot; -e &quot;KONG_PG_HOST=kong-database&quot; -e &quot;KONG_PG_PASSWORD=kong&quot; -e &quot;KONG_CASSANDRA_CONTACT_POINTS=kong-database&quot;  kong:latest kong migrations bootstrap</code></pre>
+</li>
+</ul>
+</li>
+<li><p>创建kong容器并启用</p>
+<ul>
+<li>创建kong容器,关联kong数据库,对端口进行绑定-绑定容器与主机的端口.<pre><code class="bash">  sudo docker run -d --name kong 
+  --network=kong-net 
+  -e &quot;KONG_DATABASE=postgres&quot; 
+  -e &quot;KONG_PG_HOST=kong-database&quot; 
+  -e &quot;KONG_PG_PASSWORD=kong&quot; 
+  -e &quot;KONG_CASSANDRA_CONTACT_POINTS=kong-database&quot; 
+  -e &quot;KONG_PROXY_ACCESS_LOG=/dev/stdout&quot; 
+  -e &quot;KONG_ADMIN_ACCESS_LOG=/dev/stdout&quot; 
+  -e &quot;KONG_PROXY_ERROR_LOG=/dev/stderr&quot; 
+  -e &quot;KONG_ADMIN_ERROR_LOG=/dev/stderr&quot; 
+  -e &quot;KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl&quot; 
+  -p 8000:8000 
+  -p 8443:8443 
+  -p 8001:8001 
+  -p 8444:8444 
+  kong:latest</code></pre>
+</li>
+</ul>
+</li>
+<li><p>使用kong,直接在浏览器输入 <a href="http://localhost:8001/" target="_blank" rel="noopener">http://localhost:8001/</a>  会返回相应的数据</p>
+<pre><code class="bash">curl -i http://localhost:8001/</code></pre>
+</li>
+</ul>
+</li>
+<li><p>无数据库</p>
+<ul>
+<li>创建Docker network<ul>
+<li>创建一个Docker网络,在无数据库模式中这个并不是必须的,但如果后期会添加其他内容(如:有redis集群备份的限制插件),这是一个很好的预防措施。<pre><code class="bash">docker network create kong-net</code></pre>
+</li>
+</ul>
+</li>
+<li>创建Docker volume<ul>
+<li>Docker卷其实是主机的一个文件夹,在创建一个Docker的时候就在主机中创建一个文件夹,但如果这个Docker容器被删掉的时候,相对应的文件夹也会进行删掉,所以我们使用docker volume 来对容器进行数据持久化。为了保存一些kong内的相关配置,原先这些配置是保存在数据库中的。<pre><code class="bash">docker volume create kong-vol</code></pre>
+</li>
+<li>现在可以检查下volume(关于volume的其他命令可以使用docker volume –help 进行查看):<pre><code class="bash">docker volume inspect kong-vol</code></pre>
+</li>
+<li>其实创建 volume 其实就是变相的使用文件来进行配置文件及数据的保存,并不在使用数据库进行.</li>
+</ul>
+</li>
+<li>准备声明性配置文件<ul>
+<li>添加一些配置属性以及需要的任何核心实体(服务，路由，插件，消费者等)，我们可以给其命名为kong.yml</li>
+</ul>
+</li>
+<li>创建kong容器并启用<ul>
+<li>需要对KONG-DATABASE=off进行设置无数据库,但相对应的配置文件我们还需要使用KONG_DECLARATIVE_CONFIG变量名称将声明配置文件作为参数包含在内,为此我们需要从容器中使用-v 来实现映射<pre><code class="bash">docker run -d --name kong 
+--network=kong-net 
+-v &quot;kong-vol:/usr/local/kong/declarative&quot; 
+-e &quot;KONG_DATABASE=off&quot;
+-e &quot;KONG_DECLARATIVE_CONFIG=/usr/local/kong/declarative/kong.yml&quot; 
+-e &quot;KONG_PROXY_ACCESS_LOG=/dev/stdout&quot; 
+-e &quot;KONG_ADMIN_ACCESS_LOG=/dev/stdout&quot; 
+-e &quot;KONG_PROXY_ERROR_LOG=/dev/stderr&quot; 
+-e &quot;KONG_ADMIN_ERROR_LOG=/dev/stderr&quot; 
+-e &quot;KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl&quot; 
+-p 8000:8000 
+-p 8443:8443 
+-p 8001:8001 
+-p 8444:8444 
+kong:latest</code></pre>
+</li>
+</ul>
+</li>
+<li>使用kong,直接在浏览器输入 <a href="http://localhost:8001/" target="_blank" rel="noopener">http://localhost:8001/</a>  会返回相应的数据<pre><code class="bash">curl -i http://localhost:8001/</code></pre>
+</li>
+</ul>
+<p>以上使用docker对kong安装完成,后续我们可以使用konga对kong进行UI界面设置。</p>
+</li>
+</ul>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+<div class="article-copyright hairline">
+  <p>
+    本作品采用 <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a> 进行许可。
+  </p>
+</div>
+
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2020/06/16/%E4%BD%BF%E7%94%A8docker%E5%AE%89%E8%A3%85konga/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">下一篇</div>
+      <div class="article-nav-title">
+        
+          使用docker安装konga
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/06/16/Hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">上一篇</div>
+      <div class="article-nav-title">Hexo中添加本地图片</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">分享</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=使用docker安装kong - 红色小象&url=http://yoursite.com/2020/06/16/%E4%BD%BF%E7%94%A8docker%E5%AE%89%E8%A3%85kong/">
+            <div class="n-icon n-icon-twitter"></div>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=使用docker安装kong - 红色小象&u=http://yoursite.com/2020/06/16/%E4%BD%BF%E7%94%A8docker%E5%AE%89%E8%A3%85kong/">
+            <div class="n-icon n-icon-facebook"></div>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=使用docker安装kong - 红色小象&url=http://yoursite.com/2020/06/16/%E4%BD%BF%E7%94%A8docker%E5%AE%89%E8%A3%85kong/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a>
+    </section>
+
+</article>
+
+
+
+
+</div>
+        </section>
+      </section>
+      <aside class="sidebar">
+        <div class="widget">
+          
+
+  
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+
+  
+
+
+  
+  <div class="widget-wrap">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API%E7%BD%91%E7%AE%A1Kong/" rel="tag">API网管Kong</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/" rel="tag">leetcode</a></li></ul>
+    </div>
+  </div>
+
+
+
+  
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/30/%E6%88%91%E6%98%AF%E4%B8%80%E6%9D%A1%E7%BD%AE%E9%A1%B6/">我是一条置顶</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/16/%E4%BD%BF%E7%94%A8docker%E5%AE%89%E8%A3%85konga/">使用docker安装konga</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/16/%E4%BD%BF%E7%94%A8docker%E5%AE%89%E8%A3%85kong/">使用docker安装kong</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/16/Hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/">Hexo中添加本地图片</a>
+          </li>
+        
+          <li>
+            <a href="/2020/05/29/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/">打家劫舍</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a></li></ul>
+    </div>
+  </div>
+
+
+
+        </div>
+        <div id="backtop"><i class="icon icon-arrow-up"></i></div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-info">
+            <span>&copy; 2013 - 2020 红色小象</span>
+            
+
+
+
+
+
+
+
+
+
+
+  <a class="social" href="https://github.com/redelephant5" target="_blank" rel="noopener">
+    <span class="n-icon n-icon-github"></span>
+  </a>
+
+        </div>
+        <div class="footer-powered">
+            <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Aomori</a> Theme · Powered By Hexo
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script src="/dist/build.js?1.2.0.js"></script>
+
+
+<script src="/dist/custom.js?1.2.0.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
