@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://yoursite.com/images/basic_auth-8.png">
 <meta property="og:image" content="http://yoursite.com/images/basic_auth-9.png">
 <meta property="article:published_time" content="2020-06-16T06:44:00.000Z">
-<meta property="article:modified_time" content="2020-06-16T06:58:50.287Z">
+<meta property="article:modified_time" content="2020-06-18T07:30:34.837Z">
 <meta property="article:author" content="red elephant">
 <meta property="article:tag" content="API网管Kong">
 <meta name="twitter:card" content="summary">
@@ -137,7 +137,12 @@
 <li><p>增加全局的basic auth<br><img src="/images/basic_auth-1.png" alt="basic_auth-1"><br><img src="/images/basic_auth-2.png" alt="basic_auth-2"><br><img src="/images/basic_auth-3.png" alt="basic_auth-3"></p>
 </li>
 <li><p>自定义路由增加basic auth</p>
-<p>可以按具体的url进行,对特殊的url进行认证或者是对特殊的url不进行认证。这里打个比方相当于对登录的url不进行basic auth认证,待登录成功后对登陆后需访问的url进行认证。<br><img src="/images/basic_auth-4.png" alt="basic_auth-4"></p>
+<ul>
+<li><p>可以按具体的url进行,对特殊的url进行认证或者是对特殊的url不进行认证。这里打个比方相当于对登录的url不进行basic auth认证,待登录成功后对登陆后需访问的url进行认证。<br><img src="/images/basic_auth-4.png" alt="basic_auth-4"></p>
+</li>
+<li><p>支持精细认证。比如 api/vs_x 进行basic auth 认证, api/vs_x/without 不进行 basic auth 认证。同时也支持 api/vs_x 不进行basic auth 认证, api/vs_x/withou 进行认证。</p>
+</li>
+</ul>
 </li>
 </ul>
 <h2 id="如何使用插件："><a href="#如何使用插件：" class="headerlink" title="如何使用插件："></a>如何使用插件：</h2><ul>
