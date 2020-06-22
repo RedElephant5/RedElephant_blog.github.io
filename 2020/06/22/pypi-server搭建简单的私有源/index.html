@@ -7,15 +7,15 @@
     <title>pypi-server搭建简单的私有源 | 红色小象</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta name="description" content="pypiserver 是一个最基础的PyPI服务器实现,可以用来上传和维护Python包。在官网有其他的搭建PyPI服务器方式。地址：https:&#x2F;&#x2F;wiki.python.org&#x2F;moin&#x2F;PyPiImplementations 如有需要可以查看官网。">
+    <meta name="description" content="pypiserver 是一个最基础的PyPI服务器实现,可以用来上传和维护定制化的Python包。在官网有其他的搭建PyPI服务器方式。地址：https:&#x2F;&#x2F;wiki.python.org&#x2F;moin&#x2F;PyPiImplementations 如有需要可以查看官网。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pypi-server搭建简单的私有源">
 <meta property="og:url" content="http://yoursite.com/2020/06/22/pypi-server%E6%90%AD%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E7%A7%81%E6%9C%89%E6%BA%90/index.html">
 <meta property="og:site_name" content="红色小象">
-<meta property="og:description" content="pypiserver 是一个最基础的PyPI服务器实现,可以用来上传和维护Python包。在官网有其他的搭建PyPI服务器方式。地址：https:&#x2F;&#x2F;wiki.python.org&#x2F;moin&#x2F;PyPiImplementations 如有需要可以查看官网。">
+<meta property="og:description" content="pypiserver 是一个最基础的PyPI服务器实现,可以用来上传和维护定制化的Python包。在官网有其他的搭建PyPI服务器方式。地址：https:&#x2F;&#x2F;wiki.python.org&#x2F;moin&#x2F;PyPiImplementations 如有需要可以查看官网。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-22T02:05:00.000Z">
-<meta property="article:modified_time" content="2020-06-22T03:01:27.518Z">
+<meta property="article:modified_time" content="2020-06-22T06:08:52.556Z">
 <meta property="article:author" content="red elephant">
 <meta property="article:tag" content="pypi-server搭建">
 <meta name="twitter:card" content="summary">
@@ -120,21 +120,21 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <p>pypiserver 是一个最基础的PyPI服务器实现,可以用来上传和维护Python包。在官网有其他的搭建PyPI服务器方式。地址：<a href="https://wiki.python.org/moin/PyPiImplementations" target="_blank" rel="noopener">https://wiki.python.org/moin/PyPiImplementations</a> 如有需要可以查看官网。</p>
+            <p>pypiserver 是一个最基础的PyPI服务器实现,可以用来上传和维护定制化的Python包。在官网有其他的搭建PyPI服务器方式。地址：<a href="https://wiki.python.org/moin/PyPiImplementations" target="_blank" rel="noopener">https://wiki.python.org/moin/PyPiImplementations</a> 如有需要可以查看官网。</p>
 <a id="more"></a>
 
 <h2 id="对源的理解"><a href="#对源的理解" class="headerlink" title="对源的理解"></a>对源的理解</h2><ul>
-<li>源是对一段代码进行更上一层的抽象,更方便进行代码的控制以及代码的迭代管理，同时增加的代码版本切换的灵活性。</li>
+<li>源是对一段代码进行更高一层的抽象,更方便进行代码的控制以及代码的迭代管理，同时增加了代码版本切换的灵活性。</li>
 <li>在不同的服务中可以使用私有源中不同包的版本进行安装管理。对于多个服务器中使用的相同代码可以抽离出包进行功能实现,既解决了代码的冗余而且更方便管理。</li>
 </ul>
 <h2 id="pypi安装"><a href="#pypi安装" class="headerlink" title="pypi安装"></a>pypi安装</h2><ul>
 <li>pypiserver 可以使用pip 进行安装,只要是安装了python和pip就可以进行安装使用。<pre><code class="bash">pip install pypiserver </code></pre>
 </li>
-<li>当希望使用密码来控制Python包的上传操作的时候, 需要使用Apache htpasswd 文件.pypiserver 需要 passlib 包来读取 htpasswd 文件. 使用以下命令来安装 passlib<pre><code class="bash">pip install passlib</code></pre>
+<li>当希望使用密码来控制Python包的上传操作的时候, 需要使用Apache htpasswd 文件 pypiserver 需要 passlib 包来读取 htpasswd 文件. 使用以下命令来安装 passlib<pre><code class="bash">pip install passlib</code></pre>
 要生成 htpasswd 文件, 需要安装 apache2-utils 工具包. 在Ubuntu上使用apt-get 安装 Centos 使用yum进行安装，如找不到相应的包可以使用search进行模糊搜索<pre><code class="bash">apt-get install -y apache-utils
 yum install -y apache-utils</code></pre>
 接下来就可以用 htpasswd 命令来生成密码文件. 假设密码文件路径为 /root/.pypipasswd , 第一次生成密码文件的命令如下:<pre><code class="bash">htpasswd -c /root/.pypipasswd sam</code></pre>
-上述命令中的最后一个参数sam是用户名, 执行命令后, 会提示输入密码.当需要在已有的密码文件中添加新的用户名和密码时, 不能再使用-c参数, 否则会将已有的数据覆盖. 比如, 要在上一步生成的文件里添加一个新用户名 john 在文件中对新添加的用户名进行追加:<pre><code class="bash">htpasswd /root/.pypipasswd john</code></pre>
+上述命令中的最后一个参数sam是用户名, 执行命令后, 会提示输入密码.当需要在已有的密码文件中添加新的用户名和密码时, 不能再使用-c参数, 否则会将已有的信息覆盖. 比如, 要在上一步生成的文件里添加一个新用户名 john 在文件中对新添加的用户名进行追加:<pre><code class="bash">htpasswd /root/.pypipasswd john</code></pre>
 </li>
 </ul>
 <h2 id="pypi启动"><a href="#pypi启动" class="headerlink" title="pypi启动"></a>pypi启动</h2><ul>
@@ -145,10 +145,10 @@ yum install -y apache-utils</code></pre>
 <li><p>命令中的-p是指定端口号, -P参数用来指定密码文件, -a用来指定需要密码保护的操作. 当这两个参数同时指定为.时, 表示所有的操作都不需要密码保护.此时 客户端upload 命令仍然会提示输入密码, 此时直接回车确认就可以了.</p>
 <pre><code class="bash">pypi-server -p 8999 -P . -a .</code></pre>
 </li>
-<li><p>指定包包路径,端口号,无需密码保护，包路径为服务器中对应的绝对路径</p>
+<li><p>指定包路径,端口号,无需密码保护，包路径为服务器中绝对路径</p>
 <pre><code class="bash">pypi-server -p 8999 -P . -a . /home/packages</code></pre>
 </li>
-<li><p>请求转发配置: 当请求的Python包, 在本地 pypiserver 上没有找到时, 它会将请求转发到外部PyPI源, 默认为 <a href="https://pypi.doubanio.com/simple" target="_blank" rel="noopener">https://pypi.doubanio.com/simple</a> . 对于国内使用来说, 可以通过 –fallback-url 参数将转发目的地址设置为豆瓣源(国内比较好用的如豆瓣,aili,清华这些因人而异): </p>
+<li><p>请求转发配置: 当请求的Python包, 在本地 pypiserver 上没有找到时, 它会将请求转发到外部PyPI源, 这里设置的是豆瓣的pip源，<code>https://pypi.doubanio.com/simple</code> . 通过 –fallback-url 参数将转发到外部pip源 (国内比较好用的如豆瓣,aili,清华这些因人而异): </p>
 <pre><code class="bash">pypi-server -p 8999 -P . -a . --fallback-url https://pypi.doubanio.com/simple /root/packages</code></pre>
 </li>
 <li><p>通过后台启动pipy-server服务，使用nohup命令来把终端输出进行保存,并通过&amp; 字符来进行后端启动</p>
